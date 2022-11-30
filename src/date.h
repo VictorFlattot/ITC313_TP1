@@ -5,18 +5,22 @@
 #pragma once
 
 class Date {
-
+private:
+    //Variables
+    int _day;
+    int _month;
+    int _year;
 public:
     Date();
     Date(int day, int month, int year);
 
-    int getDay() const;
-    int getMonth() const;
-    int getYear() const;
+    int getDay() const { return _day; }
+    int getMonth() const { return _month; }
+    int getYear() const { return _year; }
 
-    void setDay(int day);
-    void setMonth(int month);
-    void setYear(int year);
+    void setDay(int day) { _day = day; };
+    void setMonth(int month) { _month = month; };
+    void setYear(int year) { _year = year; };
 
     // Operators
 
@@ -26,18 +30,12 @@ public:
     bool operator > (const Date& d) const;  // d1 >  d2
     bool operator <= (const Date& d) const; // d1 <= d2
     bool operator >= (const Date& d) const; // d1 <= d2
-    Date operator + (const int days) const; // d1 + integer
-    Date operator - (const int days) const; // d1 - integer
+    Date operator + (int days) const; // d1 + integer
+    Date operator - (int days) const; // d1 - integer
     Date operator ++ (); // prefix increment: ++date
     Date operator -- (); // prefix decrement: --date
-    Date operator ++ (int); // use int paramater for postfix increment: date++
-    Date operator -- (int); // use int paramater for postfix decrement: date--
-
-private:
-    //Variables
-    int _day;
-    int _month;
-    int _year;
+    Date operator ++ (int); // use int parameter for postfix increment: date++
+    Date operator -- (int); // use int parameter for postfix decrement: date--
 };
 
 bool isDate(int year,int month, int day);

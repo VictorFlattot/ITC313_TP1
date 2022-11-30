@@ -1,5 +1,7 @@
 #include "date.h"
 #include "book.h"
+#include "reader.h"
+#include "loan.h"
 #include <iostream>
 
 #include <random>
@@ -8,6 +10,7 @@
 
 void testDate() {
     Date end_of_world(12, 12 , 2012);
+    Date end_of_world2(12, 12 , 2012);
     Date other_date(25, 12 , 2022);
 
     //Equality
@@ -15,22 +18,52 @@ void testDate() {
     std::cout << "25/12/2022 == End of World ? " << std::to_string(test) << std::endl;
     test = other_date !=  end_of_world;
     std::cout << "25/12/2022 != End of World ? " << std::to_string(test) << std::endl;
+    test = end_of_world == end_of_world2;
+    std::cout << "25/12/2012 == End of World ? " << std::to_string(test) << std::endl;
 
     // Comparison
     test = other_date > end_of_world;
     std::cout << "25/12/2022 > End of World : " << std::to_string(test) << std::endl;
+    test = Date(1,1,2010) > Date(1,1,2010);
+    std::cout << "01/01/2010 > 01/01/2010 : " << std::to_string(test) << std::endl;
+    test = Date(1,1,2010) > Date(2,1,2010);
+    std::cout << "01/01/2010 > 01/01/2010 : " << std::to_string(test) << std::endl;
+
     test = other_date < end_of_world;
     std::cout << "25/12/2022 < End of World : " << std::to_string(test) << std::endl;
+    test = Date(1,1,2010) < Date(1,1,2015) ;
+    std::cout << "01/01/2010 < 01/01/2015: " << std::to_string(test) << std::endl;
+    test = Date(1,1,2010) < Date(1,2,2010) ;
+    std::cout << "01/01/2010 < 01/02/2010: " << std::to_string(test) << std::endl;
+    test = Date(1,1,2010) < Date(1,2,2010) ;
+    std::cout << "01/01/2010 < 01/02/2010: " << std::to_string(test) << std::endl;
+    test = Date(1,2,2010) < Date(1,1,2010) ;
+    std::cout << "01/02/2010 < 01/01/2010: " << std::to_string(test) << std::endl;
+    test = Date(1,1,2010) < Date(2,1,2010) ;
+    std::cout << "01/01/2010 < 02/01/2010: " << std::to_string(test) << std::endl;
+    test = Date(2,1,2010) < Date(1,1,2010) ;
+    std::cout << "02/01/2010 < 01/01/2010: " << std::to_string(test) << std::endl;
+
+
     test = other_date >= end_of_world;
     std::cout << "25/12/2022 >= End of World : " << std::to_string(test) << std::endl;
+    test = Date(1,1,2010) >= Date(1,1,2010);
+    std::cout << "01/01/2010 >= 01/01/2010 : " << std::to_string(test) << std::endl;
+
     test = other_date <= end_of_world;
     std::cout << "25/12/2022 <= End of World : " << std::to_string(test) << std::endl;
+    test = Date(1,1,2010) <= Date(1,1,2010);
+    std::cout << "01/01/2010 <= 01/01/2010 : " << std::to_string(test) << std::endl;
 
     // Arithmetic
     Date new_date = end_of_world + 70;
     std::cout << "12/12/2022 + 70 days : " << new_date << std::endl;
+    new_date = end_of_world + -70;
+    std::cout << "12/12/2022 + -70 days : " << new_date << std::endl;
     new_date = end_of_world - 152;
     std::cout << "12/12/2022 - 152 days : " << new_date << std::endl;
+    new_date = end_of_world - (-152);
+    std::cout << "12/12/2022 - +152 days : " << new_date << std::endl;
     new_date = new_date + 50;
     std::cout << "12/12/2022 - 152 + 50 days : " << new_date << std::endl;
 
@@ -58,6 +91,9 @@ void testDate() {
     tmp = new_date--;
     std::cout << "tmp = new_date-- -> tmp=" << tmp << " new_date=" << new_date << std::endl;
 
+    std::cout << "12/12/2022 - jour de l'annee : " <<dayOfYear(new_date) << std::endl;
+
+
 }
 
 std::string generateISBN(){
@@ -80,6 +116,15 @@ int main(int argc, char const *argv[])
     Book b = Book("",w,Language::French,Genre::Biography,Date(),generateISBN());
     std::cout << b << std::endl;
 
+    Reader r("Flattot","Victor");
+    Loan l(b.getISNB(),r.getId());
+    std::cout << r << std::endl;
+    std::cout << l << std::endl;
+    return 0;
+
+
+
     return 0;
 }
+
 

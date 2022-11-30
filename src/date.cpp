@@ -21,19 +21,9 @@ Date::Date(int day, int month, int year):
     assert(status && "Date is not valid");
 }
 
-//Getter
-int Date::getDay() const {return _day;}
-int Date::getMonth() const {return _month;}
-int Date::getYear() const {return _year;}
-
-//Setter
-void Date::setDay(int day) { _day = day;}
-void Date::setMonth(int month) { _month = month;}
-void Date::setYear(int year) { _year = year;}
-
 //Operators
 
-Date Date::operator + (const int days) const {
+Date Date::operator + (int days) const {
     if (days < 0) { //if days <0, we call Date - (-days)
         return *this - (-days);
     }
@@ -79,9 +69,7 @@ Date Date::operator --() { // prefix decrement
     return *this;
 }
 
-
-
-Date Date::operator - (const int days) const {
+Date Date::operator - (int days) const {
     if (days < 0) { //if days <0, we call Date + (-days)
         return *this + (-days);
     }
