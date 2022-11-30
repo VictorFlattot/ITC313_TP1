@@ -74,7 +74,7 @@ std::string generateISBN(){
 
 int main(int argc, char const *argv[])
 {
-//     testDate();
+     testDate();
 
     Writer w("Flattot","Victor",Date(16,02,1999));
     Book b = Book("",w,Language::French,Genre::Biography,Date(),generateISBN());

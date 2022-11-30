@@ -2,8 +2,8 @@
 #include <assert.h>
 #include <iostream>
 
-std::string month[12] = {"Jan", "Feb", "March", "April", "May", "June",
-                         "July", "Aug", "Sept", "Oct", "Nov", "Dec"
+std::string months[12] = {"Jan", "Feb", "March", "April", "May", "June",
+                          "July", "Aug", "Sept", "Oct", "Nov", "Dec"
                         };
 
 Date::Date() {
@@ -38,12 +38,12 @@ Date Date::operator + (const int days) const {
         return *this - (-days);
     }
     Date tmp = *this; // the current date
-    int new_day = tmp._day + days; // the new day is ok if new_day < end of month
+    int new_day = tmp._day + days; // the new day is ok if new_day < end of months
     int new_month = tmp._month;
     int new_year = tmp._year;
     int days_in_month = getDaysInMonth(tmp._month);
-    while (new_day > days_in_month) { // end of the month
-        new_day -= days_in_month; // the day in the next month
+    while (new_day > days_in_month) { // end of the months
+        new_day -= days_in_month; // the day in the next months
         ++new_month;
         if (new_month > 12) { // end of the year
             ++new_year;
@@ -54,7 +54,7 @@ Date Date::operator + (const int days) const {
         //days_in_month = getDaysInMonth(tmp._month);
         days_in_month = getDaysInMonth(new_month);
     }
-    return Date(new_day, new_month, new_year);
+    return {new_day, new_month, new_year};
 }
 
 Date Date::operator ++(int) { // postfix increment
@@ -103,7 +103,7 @@ Date Date::operator - (const int days) const {
     }
     // std::cout<< new_day << "/" << new_month << "/" << new_year << std::endl;
 
-    return Date(new_day, new_month , new_year);
+    return {new_day, new_month , new_year};
 }
 
 bool Date::operator == (const Date& d) const { // check for equality
@@ -130,7 +130,7 @@ bool Date::operator < (const Date& d) const {
         else if (_month > d.getMonth()) {
             return false;
         }
-        else { // same month
+        else { // same months
             if (_day < d.getDay()) {
                 return true;
             }
@@ -199,7 +199,7 @@ int dayOfYear(Date d) {
 }
 
 std::string to_string(const Date& d){
-    return month[d.getMonth() - 1] + "/" + std::to_string(d.getDay()) + "," + std::to_string(d.getYear());
+    return months[d.getMonth() - 1] + "/" + std::to_string(d.getDay()) + "," + std::to_string(d.getYear());
 }
 
 std::ostream& operator<<(std::ostream& os, const Date& date) {

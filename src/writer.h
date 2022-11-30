@@ -12,7 +12,7 @@ private:
     std::string _id;
 
 public:
-	Writer(std::string name = "", std::string surname = "", Date birthdate = Date(1, 1, 0000),std::string id = std::to_string(rand()));
+	explicit Writer(std::string name = "", std::string surname = "", Date birthdate = Date(1, 1, 0000),std::string id = std::to_string(rand()));
 
     void setId(std::string& id) { _id = id; };
     void setName(std::string& name) { _name = name; };
@@ -24,7 +24,6 @@ public:
     std::string getSurname() const { return _surname; };
     Date getBirthdate() const { return _birthdate; };
 
-
-
 };
 std::string to_string(const Writer& w);
+std::ostream& operator<<(std::ostream& os, const Writer& writer);

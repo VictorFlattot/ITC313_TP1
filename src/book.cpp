@@ -3,14 +3,14 @@
 
 
 Book::Book(std::string title, Writer  writer, Language language, Genre genre, Date datePublished,
-           std::string ISNB, std::vector<std::string> lastsBorrowers) :
-           _title(std::move(title)), _writer(std::move(writer)),
-           _language(language),
-           _genre(genre),
-           _datePublished(datePublished),
-           _ISNB(std::move(ISNB)),
-           _lastsBorrowers(std::move(lastsBorrowers)) {}
-
+           std::string ISNB, std::vector<std::string> lastsBorrowers, bool isBorrowed) :
+        _title(std::move(title)), _writer(std::move(writer)),
+        _language(language),
+        _genre(genre),
+        _datePublished(datePublished),
+        _isnb(std::move(ISNB)),
+        _lastsBorrowers(std::move(lastsBorrowers)),
+        _isBorrowed(isBorrowed){}
 
 
 std::string displayVector(std::vector<std::string> const& strings){

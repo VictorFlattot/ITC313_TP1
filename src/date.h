@@ -1,16 +1,14 @@
-#pragma once
-
 #include <string>
 #include <ctime>
 #include <ostream>
+
+#pragma once
 
 class Date {
 
 public:
     Date();
     Date(int day, int month, int year);
-
-
 
     int getDay() const;
     int getMonth() const;
