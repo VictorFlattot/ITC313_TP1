@@ -11,6 +11,7 @@ Loan::Loan(std::string isnb, std::string id,const Date& loanDate) :
         _loanDate(loanDate){
     bool status = isLoanValid(isnb, id, loanDate);
     assert(status && "Date is not valid");
+    
 }
 
 std::string to_string(const Loan& l){
