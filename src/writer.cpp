@@ -14,8 +14,27 @@ Writer::Writer(std::string name,std::string surname, Date birthdate,std::string 
     existingId.push_back(_id);
 };
 
+const std::string &Writer::getName() const { return _name; }
+const std::string &Writer::getSurname() const { return _surname; }
+const Date &Writer::getBirthdate() const { return _birthdate; }
+const std::string &Writer::getId() const { return _id; }
+
+void Writer::setName(const std::string &name) { _name = name; }
+void Writer::setSurname(const std::string &surname) { _surname = surname; }
+void Writer::setBirthdate(const Date &birthdate) { _birthdate = birthdate; }
+void Writer::setId(const std::string &id) { _id = id; }
+
+bool Writer::operator==(const Writer &w) const {
+    if (_name == w.getName() && _surname == w.getSurname() && _birthdate == w.getBirthdate() && _id == w.getId()){
+        return true;
+    }
+    return false;
+}
+
+bool Writer::operator!=(const Writer &w) const { return false; }
+
 bool isIdValid(const std::string& id) {
-    if ( std::find(existingId.begin(), existingId.end(), id) != existingId.end() )
+    if (std::find(existingId.begin(), existingId.end(), id) != existingId.end() )
         return true;
     return false;
 }

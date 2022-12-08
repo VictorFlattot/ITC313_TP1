@@ -15,20 +15,25 @@ private:
 public:
 	explicit Writer(std::string name = "", std::string surname = "", Date birthdate = Date(1, 1, 0000),std::string id = std::to_string(rand()));
 
-    void setId(std::string& id) { _id = id; };
-    void setName(std::string& name) { _name = name; };
-    void setSurname(std::string& surname) { _surname = surname;}
-    void setBirthdate(Date& birthdate) { _birthdate = birthdate; };
+    const std::string &getName() const;
+    const std::string &getSurname() const;
+    const Date &getBirthdate() const;
+    const std::string &getId() const;
 
-    std::string getId() const { return _id; };
-    std::string getName() const { return _name; };
-    std::string getSurname() const { return _surname; };
-    Date getBirthdate() const { return _birthdate; };
+    void setName(const std::string &name);
+    void setSurname(const std::string &surname);
+    void setBirthdate(const Date &birthdate);
+    void setId(const std::string &id);
+
+    bool operator == (const Writer& w) const; // d1 == d2
+    bool operator != (const Writer& w) const; // d1 != d2
 
 };
 
 bool isIdValid(const std::string& id);
+
 bool isWriter(const std::string& name , const std::string& surname,Date birthdate, const std::string& id);
 bool isWriter(Writer w) ;
+
 std::string to_string(const Writer& w);
 std::ostream& operator<<(std::ostream& os, const Writer& writer);

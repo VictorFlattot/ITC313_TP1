@@ -21,7 +21,13 @@ Date::Date(int day, int month, int year):
     assert(status && "Date is not valid");
 }
 
-//Operators
+int Date::getDay() const { return _day; }
+int Date::getMonth() const { return _month; }
+int Date::getYear() const { return _year; }
+
+void Date::setDay(int day) { _day = day; }
+void Date::setMonth(int month) { _month = month; }
+void Date::setYear(int year) { _year = year; }
 
 Date Date::operator + (int days) const {
     if (days < 0) { //if days <0, we call Date - (-days)
@@ -105,6 +111,7 @@ bool Date::operator !=(const Date& d) const {
     return !(*this == d);
 }
 
+
 bool Date::operator < (const Date& d) const {
     if (_year < d.getYear()) {
         return true;
@@ -131,7 +138,6 @@ bool Date::operator < (const Date& d) const {
     return false;
 }
 
-
 bool Date::operator > (const Date& d) const {
     if (*this == d) {
         return false;
@@ -157,7 +163,6 @@ bool Date::operator >=(const Date& d) const {
 }
 
 
-//Helpers
 bool isDate(int year, int month, int day) {
     if ((day < 1) || (day > 31)) return false;
     if ((month < 1) || (month > 12)) return false;

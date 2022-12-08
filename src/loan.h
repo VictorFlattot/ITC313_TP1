@@ -14,18 +14,19 @@ class Loan {
     Date _loanDate;
 
     public:
-    Loan (std::string isnb = "", std::string id = "", const Date &loanDate = Date());
+    explicit Loan (std::string isnb = "", std::string id = "", const Date &loanDate = Date());
 
-    void setIsnb(std::string& isnb) { _isnb = isnb; }
-    void setId(std::string& id) { _id = id; }
-    void setLoanDate(const Date &loanDate) { _loanDate = loanDate;}
+    const std::string &getIsnb() const;
+    const std::string &getId() const;
+    const Date &getLoanDate() const;
 
-    const std::string &getIsnb() const { return _isnb; }
-    const std::string &getId() const { return _id; }
-    const Date &getLoanDate() const { return _loanDate; }
+    void setIsnb(const std::string &isnb);
+    void setId(const std::string &id);
+    void setLoanDate(const Date &loanDate);
 
 };
 
 bool isLoanValid(const std::string& isbn, const std::string& id, const Date& loanDate);
+
 std::string to_string(const Loan& l);
 std::ostream& operator<<(std::ostream& os, const Loan& loan);

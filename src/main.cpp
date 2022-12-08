@@ -107,7 +107,21 @@ std::string generateISBN() {
 int main(int argc, char const *argv[])
 {
     //testDate();
+    std::vector<Writer> writers = {Writer("Musso","Guillaume",Date(06,06,1974)),
+                                   Writer("Bussi","Michel",Date(29,04,1965)),
+                                   Writer("Grimaldi","Virginie ",Date(01,01,1977)),
+                                   Writer("Levy","Marc",Date(16,10,1961)),
+                                   Writer("Valognes","Aurélie",Date(01,01,1983))};
 
+    std::vector<Book> books = {Book("La vie est un roman",writers.at(0),Language::French,Genre::Fiction,Date(20,5,2020),"2253237647"),
+                               Book("Angélique",writers.at(0),Language::French,Genre::Fiction,Date(20,9,2022),"2702183689"),
+                               Book("L'Inconnue de la Seine",writers.at(0),Language::French,Genre::Drama,Date(21,9,2021),"2253106631"),
+                               Book("C'est arrivé la nuit",writers.at(3),Language::French,Genre::Fiction,Date(6,5,2021),"2266315897"),
+                               Book("NOA",writers.at(3),Language::French,Genre::Fiction,Date(1,5,2022),"2221243595"),
+                               Book("Eteignez tout et la vie s'allume",writers.at(3),Language::French,Genre::Fiction,Date(1,5,2022),"2221268091"),
+                               Book("Nouvelle Babel",writers.at(1),Language::French,Genre::Fiction,Date(3,2,2022),"2258200326"),
+                               Book("Code 612 Qui a tué le petit Prince ?",writers.at(1),Language::French,Genre::Fiction,Date(14,10,2021),"2258197902")
+            };
 
     Writer w("Flattot", "Victor", Date(16, 02, 1999));
     Book b = Book("", w, Language::French, Genre::Biography, Date(), generateISBN());
@@ -117,21 +131,20 @@ int main(int argc, char const *argv[])
 
 
     Library li = Library();
+    li.add(books);
     li.add(b);
     li.add(r);
-    // li.add(l);s
     li.displayBooks(true);
     // li.displayReaders(true);
 
 
     li.loan(b, r);
-
     std::cout << b;
-
     li.returnBook(b, r2);
-
     std::cout << b.isBorrowed();
     li.displayLoans(true);
+
+
 
     return 0;
 }

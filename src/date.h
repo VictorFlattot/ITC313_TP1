@@ -14,15 +14,13 @@ public:
     Date();
     Date(int day, int month, int year);
 
-    int getDay() const { return _day; }
-    int getMonth() const { return _month; }
-    int getYear() const { return _year; }
+    int getDay() const;
+    int getMonth() const;
+    int getYear() const;
 
-    void setDay(int day) { _day = day; };
-    void setMonth(int month) { _month = month; };
-    void setYear(int year) { _year = year; };
-
-    // Operators
+    void setDay(int day);
+    void setMonth(int month);
+    void setYear(int year);
 
     bool operator == (const Date& d) const; // d1 == d2
     bool operator != (const Date& d) const; // d1 != d2
