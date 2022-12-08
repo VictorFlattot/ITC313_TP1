@@ -39,6 +39,7 @@ public:
 };
 
 bool isDate(int year,int month, int day);
+bool isDate(const Date& d);
 int getDaysInMonth(int month);
 int dayOfYear(Date d);
 

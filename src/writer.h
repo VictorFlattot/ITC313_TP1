@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 #include "date.h"
 
 #pragma once
@@ -25,5 +26,9 @@ public:
     Date getBirthdate() const { return _birthdate; };
 
 };
+
+bool isIdValid(const std::string& id);
+bool isWriter(const std::string& name , const std::string& surname,Date birthdate, const std::string& id);
+bool isWriter(Writer w) ;
 std::string to_string(const Writer& w);
 std::ostream& operator<<(std::ostream& os, const Writer& writer);

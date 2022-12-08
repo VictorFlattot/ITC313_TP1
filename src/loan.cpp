@@ -10,7 +10,7 @@ Loan::Loan(std::string isnb, std::string id,const Date& loanDate) :
         _id(id),
         _loanDate(loanDate){
     bool status = isLoanValid(isnb, id, loanDate);
-    assert(status && "Date is not valid");
+    assert(status && "Loan is not valid");
     
 }
 
@@ -30,5 +30,4 @@ bool isLoanValid(const std::string& isbn, const std::string& id, const Date& loa
     if (isbn.size()!= 10) return false;
     if (id.empty()) return false;
     return true;
-
 }

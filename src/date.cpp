@@ -158,7 +158,6 @@ bool Date::operator >=(const Date& d) const {
 
 
 //Helpers
-
 bool isDate(int year, int month, int day) {
     if ((day < 1) || (day > 31)) return false;
     if ((month < 1) || (month > 12)) return false;
@@ -167,6 +166,10 @@ bool isDate(int year, int month, int day) {
     if (((month == 4) || (month == 6) ||
             (month == 9) || (month == 11)) && (day > 30)) return false;
     return true;
+}
+
+bool isDate(const Date& d){
+    return isDate(d.getYear(), d.getMonth(), d.getDay());
 }
 
 int getDaysInMonth(int month)  {
@@ -187,6 +190,7 @@ int dayOfYear(Date d) {
 }
 
 std::string to_string(const Date& d){
+    if (d.getDay() == 1 && d.getMonth() == 1 && d.getYear() == 0) return "Unknown";
     return months[d.getMonth() - 1] + "/" + std::to_string(d.getDay()) + "," + std::to_string(d.getYear());
 }
 

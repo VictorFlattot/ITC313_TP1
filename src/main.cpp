@@ -1,12 +1,7 @@
-#include "date.h"
-#include "book.h"
-#include "reader.h"
-#include "loan.h"
 #include "library.h"
 #include <iostream>
 
 #include <random>
-#include <iomanip>
 #include <algorithm>
 
 void testDate() {
@@ -113,6 +108,7 @@ int main(int argc, char const *argv[])
 {
     //testDate();
 
+
     Writer w("Flattot", "Victor", Date(16, 02, 1999));
     Book b = Book("", w, Language::French, Genre::Biography, Date(), generateISBN());
     Reader r("Flattot", "Victor");
@@ -132,7 +128,7 @@ int main(int argc, char const *argv[])
 
     std::cout << b;
 
-    li.returnBook(b, r);
+    li.returnBook(b, r2);
 
     std::cout << b.isBorrowed();
     li.displayLoans(true);

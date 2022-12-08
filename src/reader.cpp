@@ -11,7 +11,7 @@ Reader::Reader(std::string name, std::string surname, std::vector<std::string> b
     _borrowedBooks(std::move(borrowedBooks)),
     _id(std::move(id)){}
 
-std::string to_string(const Reader& r){
+std::string to_string(Reader r){
     std::string result = r.getId();
     if (!r.getSurname().empty()) result += " - " + r.getSurname();
     if (!r.getName().empty()) result += + " " + r.getName();
