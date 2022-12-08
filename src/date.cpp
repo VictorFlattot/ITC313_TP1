@@ -1,5 +1,5 @@
 #include "date.h"
-#include <assert.h>
+#include <cassert>
 #include <iostream>
 
 std::string months[12] = {"Jan", "Feb", "March", "April", "May", "June",
@@ -17,17 +17,16 @@ Date::Date() {
 
 Date::Date(int day, int month, int year):
     _day(day), _month(month), _year(year) {
-    bool status = isDate(year, month, day);
-    assert(status && "Date is not valid");
+    assert(isDate(year, month, day) && "Date is not valid");
 }
 
 int Date::getDay() const { return _day; }
 int Date::getMonth() const { return _month; }
 int Date::getYear() const { return _year; }
 
-void Date::setDay(int day) { _day = day; }
-void Date::setMonth(int month) { _month = month; }
-void Date::setYear(int year) { _year = year; }
+void Date::setDay(int day) { _day = day; assert(isDate(*this) && "Date is not valid");}
+void Date::setMonth(int month) { _month = month; assert(isDate(*this) && "Date is not valid");}
+void Date::setYear(int year) { _year = year; assert(isDate(*this) && "Date is not valid");}
 
 Date Date::operator + (int days) const {
     if (days < 0) { //if days <0, we call Date - (-days)
@@ -200,6 +199,6 @@ std::string to_string(const Date& d){
 }
 
 std::ostream& operator<<(std::ostream& os, const Date& date) {
-    os << to_string(date) << std::endl;
+    os << to_string(date);
     return os;
 }

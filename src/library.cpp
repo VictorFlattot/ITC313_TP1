@@ -3,13 +3,16 @@
 #include <algorithm>
 #include <iterator>
 
+Library::Library() = default;
+
+
 void Library::add(Book &b) { _books.push_back(b); }
 void Library::add(Reader &r) { _readers.push_back(r); }
 void Library::add(Loan &l) { _loans.push_back(l); }
 void Library::add(const std::vector<Book> &books) { for (auto book: books) add(book); }
 void Library::add(const std::vector<Reader> &readers) { for (auto reader: readers) add(reader); }
-void Library::add(const std::vector<Loan> &loans) { for (auto loan: loans) add(loan); }
 
+void Library::add(const std::vector<Loan> &loans) { for (auto loan: loans) add(loan); }
 void Library::delBook(int id) {
     if (id < _books.size()) {
         _books.erase(_books.begin() + id);
@@ -20,6 +23,7 @@ void Library::delReader(int id) {
         _readers.erase(_readers.begin() + id);
     }
 }
+
 void Library::delLoan(int id) {
     if (id < _loans.size()) {
         _loans.erase(_loans.begin() + id);

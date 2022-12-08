@@ -66,6 +66,8 @@ void Book::setIsnb(const std::string &isnb) { _isnb = isnb; }
 void Book::setLastsBorrowers(const std::vector<std::string> &lastsBorrowers) { _lastsBorrowers = lastsBorrowers; }
 void Book::setIsBorrowed(bool isBorrowed){ _isBorrowed = isBorrowed; }
 
+void Book::addLastBorrower(const std::string &borrower) { _lastsBorrowers.push_back(borrower); }
+
 bool Book::operator==(const Book &b) const {
     return _title == b._title &&
            _writer == b._writer &&

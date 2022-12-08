@@ -12,7 +12,7 @@ private:
 	std::vector<Loan> _loans;
 
 public:
-	Library() = default;
+	Library();
 
 	void add(Book& b);
 	void add(Reader& r);

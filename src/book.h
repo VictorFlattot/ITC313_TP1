@@ -26,7 +26,7 @@ public:
                   std::string ISNB = "0000000000", std::vector<std::string> lastsBorrowers = {},
                   bool isBorrowed = false);
 
-    void addLastBorrower(const std::string &borrower) { _lastsBorrowers.push_back(borrower); }
+    void addLastBorrower(const std::string &borrower);
 
     std::string getTitle() const;
 
