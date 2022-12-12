@@ -1,8 +1,10 @@
 #include "library.h"
 #include "test/dateTest.h"
+#include "test/bookTest.h"
+#include "test/writerTest.h"
 #include <random>
 #include <algorithm>
-
+// 
 void foo();
 
 
@@ -37,7 +39,7 @@ void foo() {
     };
 
     Writer w("Flattot", "Victor", Date(16, 02, 1999));
-    Book b = Book("", w, French, Genre::Biography, Date(), generateISBN());
+    Book b = Book("", w, Language::French, Genre::Biography, Date(), generateISBN());
     Reader r("Flattot", "Victor");
     Reader r2("Reader2", "re");
     // Loan l(b.getISNB(),r.getId());
@@ -61,9 +63,11 @@ void foo() {
 int main(int argc, char const *argv[])
 {
     //dateTest();
-    foo();
+    // foo();
     // test::DateTest dateTest = test::DateTest();
     // dateTest.all();
+
+    test::WriterTest writerTest = test::WriterTest();
 
     return 0;
 }

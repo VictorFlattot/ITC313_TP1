@@ -1,5 +1,4 @@
-#ifndef LIBRARY_DATETEST_H
-#define LIBRARY_DATETEST_H
+#pragma once
 
 #include "test.h"
 #include "../date.h"
@@ -25,4 +24,3 @@ namespace test {
 
 } // test
 
-#endif //LIBRARY_DATETEST_H
