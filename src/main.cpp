@@ -61,9 +61,9 @@ void foo() {
 int main(int argc, char const *argv[])
 {
     //dateTest();
-    //foo();
-    test::DateTest dateTest = test::DateTest();
-    dateTest.all();
+    foo();
+    // test::DateTest dateTest = test::DateTest();
+    // dateTest.all();
 
     return 0;
 }
