@@ -14,6 +14,14 @@ Writer::Writer(std::string name,std::string surname, Date birthdate,std::string 
     existingId.push_back(_id);
 };
 
+// Writer::Writer(const Writer& w):{
+//     _id(std::move(w.getId()));,
+//     _name(std::move(w.getName())),
+//     _surname(std::move(w.getSurname())),
+//     _birthdate(w.getBirthdate()){
+//     existingId.push_back(w.getId());
+// }
+
 const std::string &Writer::getName() const { return _name; }
 const std::string &Writer::getSurname() const { return _surname; }
 const Date &Writer::getBirthdate() const { return _birthdate; }

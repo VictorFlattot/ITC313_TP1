@@ -14,6 +14,7 @@ private:
 
 public:
 	explicit Writer(std::string name = "", std::string surname = "", Date birthdate = Date(1, 1, 0000),std::string id = std::to_string(rand()));
+    // Writer(const Writer& w);
 
     const std::string &getName() const;
     const std::string &getSurname() const;

@@ -42,8 +42,6 @@ void foo() {
     Book b = Book("", w, Language::French, Genre::Biography, Date(), generateISBN());
     Reader r("Flattot", "Victor");
     Reader r2("Reader2", "re");
-    // Loan l(b.getISNB(),r.getId());
-
 
     Library li = Library();
     li.add(books);
@@ -62,12 +60,12 @@ void foo() {
 
 int main(int argc, char const *argv[])
 {
-    //dateTest();
-    // foo();
+    // dateTest();
+    foo();
     // test::DateTest dateTest = test::DateTest();
     // dateTest.all();
 
-    test::WriterTest writerTest = test::WriterTest();
+    // test::WriterTest writerTest = test::WriterTest();
 
     return 0;
 }

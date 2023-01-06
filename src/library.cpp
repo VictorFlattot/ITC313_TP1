@@ -66,6 +66,8 @@ bool Library::isBookInLibrary(const Book& b) {
     return false;
 }
 
+
+
 bool Library::loan(Book &b, Reader &r, const Date &loanDate) {
     if (!isBookInLibrary(b)) return false;
     if (b.isBorrowed()) return false;
