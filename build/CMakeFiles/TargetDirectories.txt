@@ -1,3 +1,0 @@
-/home/victorflattot/TP_C++/ITC313_TP1/build/CMakeFiles/ITC313_TP1.dir
-/home/victorflattot/TP_C++/ITC313_TP1/build/CMakeFiles/edit_cache.dir
-/home/victorflattot/TP_C++/ITC313_TP1/build/CMakeFiles/rebuild_cache.dir
