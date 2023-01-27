@@ -3,6 +3,8 @@
 #include <utility>
 #include <algorithm>
 #include <iterator>
+#include <cassert>
+#include <iostream>
 
 std::vector<std::string> existingId = {};
 
@@ -11,16 +13,10 @@ Writer::Writer(std::string name,std::string surname, Date birthdate,std::string 
             _name(std::move(name)),
             _surname(std::move(surname)),
             _birthdate(birthdate){
+    bool status = isWriter(_name,_surname,_birthdate, _id);
+    assert(status && "Writer is not valid");
     existingId.push_back(_id);
 };
-
-// Writer::Writer(const Writer& w):{
-//     _id(std::move(w.getId()));,
-//     _name(std::move(w.getName())),
-//     _surname(std::move(w.getSurname())),
-//     _birthdate(w.getBirthdate()){
-//     existingId.push_back(w.getId());
-// }
 
 const std::string &Writer::getName() const { return _name; }
 const std::string &Writer::getSurname() const { return _surname; }
@@ -42,14 +38,20 @@ bool Writer::operator==(const Writer &w) const {
 bool Writer::operator!=(const Writer &w) const { return false; }
 
 bool isIdValid(const std::string& id) {
-    if (std::find(existingId.begin(), existingId.end(), id) != existingId.end() )
-        return true;
-    return false;
+    // display existingId
+    for (auto it : existingId) {
+        std::cout << it << std::endl;
+    }
+    std::cout << "ok" << std::endl;
+    if ((std::find(existingId.begin(), existingId.end(), id) != existingId.end()))
+        return false;
+    return true;
 }
 
 bool isWriter(const std::string& name, const std::string& surname, Date birthdate, const std::string& id) {
-    if (name.empty() && surname.empty()) return false;
+
     if (!isDate(birthdate)) return false;
+    if (name.empty() && surname.empty()) return false;
     if (!isIdValid(id)) return false;
     return true;
 

@@ -20,7 +20,7 @@ public:
      * @param[in]  <unnamed>  { parameter_description }
      * @param[in]  id         The identifier
      */
-    explicit Reader(std::string name = "", std::string surname = "", std::vector<std::string> = {},
+    explicit Reader(std::string name = "", std::string surname = "", std::vector<std::string> borrowedBooks = {},
                     std::string id = std::to_string(rand()));
 
     

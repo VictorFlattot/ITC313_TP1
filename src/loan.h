@@ -21,20 +21,20 @@ class Loan {
      * @param[in]  id        The identifier
      * @param[in]  loanDate  The loan date
      */
-    explicit Loan (std::string isnb = "", std::string id = "", const Date &loanDate = Date());
+    explicit Loan (const std::string& isnb = "", const std::string& id = "", const Date &loanDate = Date());
 
     /**
      * @brief      Gets the isnb.
      *
      * @return     The isnb.
      */
-    const std::string &getIsnb() const;
+    std::string getIsnb() const;
     /**
      * @brief      Gets the identifier.
      *
      * @return     The identifier.
      */
-    const std::string &getId() const;
+    std::string getId() const;
     /**
      * @brief      Gets the loan date.
      *
@@ -47,13 +47,13 @@ class Loan {
      *
      * @param[in]  isnb  The isnb
      */
-    void setIsnb(const std::string &isnb);
+    void setIsnb(std::string isnb);
     /**
      * @brief      Sets the identifier.
      *
      * @param[in]  id    The new value
      */
-    void setId(const std::string &id);
+    void setId(std::string id);
     /**
      * @brief      Sets the loan date.
      *

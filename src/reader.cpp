@@ -23,6 +23,8 @@ void Reader::setSurname(const std::string &surname) { _surname = surname; }
 void Reader::setBorrowedBooks(const std::vector<std::string> &borrowedBooks) { _borrowedBooks = borrowedBooks; }
 void Reader::setId(const std::string &id) { _id = id; }
 
+
+
 //Helper functions
 std::string to_string(Reader r){
     std::string result = r.getId();

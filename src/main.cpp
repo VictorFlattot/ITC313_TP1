@@ -12,7 +12,7 @@ void f(T s)
 
 int main(int argc, char const *argv[])
 {
-    bool activeTest = false;
+    bool activeTest = true;
     if (activeTest) {
         if (true){
             test::DateTest dateTest = test::DateTest();
@@ -20,11 +20,11 @@ int main(int argc, char const *argv[])
         }
     }
 
-    std::vector<Writer> writers = {Writer("Musso", "Guillaume", Date(06, 06, 1974)),
-                                   Writer("Bussi","Michel",Date(29,04,1965)),
-                                   Writer("Grimaldi","Virginie ",Date(01,01,1977)),
-                                   Writer("Levy","Marc",Date(16,10,1961)),
-                                   Writer("Valognes","Aurélie",Date(01,01,1983))};
+    std::vector<Writer> writers = {Writer("Musso", "Guillaume", Date(06, 06, 1974),"1"),
+                                   Writer("Bussi","Michel",Date(29,04,1965),"2"),
+                                   Writer("Grimaldi","Virginie ",Date(01,01,1977),"3"),
+                                   Writer("Levy","Marc",Date(16,10,1961),"4"),
+                                   Writer("Valognes","Aurélie",Date(01,01,1983),"5")};
 
     std::vector<Book> books = {Book("La vie est un roman", writers.at(0), French, Genre::Fiction, Date(20, 5, 2020), "2253237647"),
                                Book("Angélique", writers.at(0), French, Genre::Fiction, Date(20, 9, 2022), "2702183689"),

@@ -5,21 +5,21 @@
 #include <cassert>
 #include "loan.h"
 
-Loan::Loan(std::string isnb, std::string id,const Date& loanDate) :
+Loan::Loan(const std::string& isnb, const std::string& id,const Date& loanDate) :
         _isnb(isnb),
         _id(id),
         _loanDate(loanDate){
-    bool status = isLoanValid(isnb, id, loanDate);
+    bool status = isLoanValid(_isnb, _id, _loanDate);
     assert(status && "Loan is not valid");
     
 }
 
-const std::string &Loan::getIsnb() const { return _isnb; }
-const std::string &Loan::getId() const { return _id; }
+std::string Loan::getIsnb() const { return _isnb; }
+std::string Loan::getId() const { return _id; }
 const Date &Loan::getLoanDate() const { return _loanDate; }
 
-void Loan::setIsnb(const std::string &isnb) { _isnb = isnb; }
-void Loan::setId(const std::string &id) { _id = id; }
+void Loan::setIsnb(std::string isnb) { _isnb = isnb; }
+void Loan::setId(std::string id) { _id = id; }
 void Loan::setLoanDate(const Date &loanDate) { _loanDate = loanDate; }
 
 bool isLoanValid(const std::string& isbn, const std::string& id, const Date& loanDate){

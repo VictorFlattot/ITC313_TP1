@@ -146,7 +146,7 @@ namespace test {
         //_d3.setMonth(-6);     // Test assert false
         //_d3.setDay(-4);       // Test assert false
 
-        std::cout << Date() << " set for Jun/9,2020 : " << _d3 << std::endl << std::endl;
+//        std::cout << Date() << " set for Jun/9,2020 : " << _d3 << std::endl << std::endl;
     }
 
     void DateTest::all() {
