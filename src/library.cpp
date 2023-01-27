@@ -80,7 +80,7 @@ bool Library::loan(Book &b, Reader &r, const Date &loanDate) {
 
 bool Library::returnBook(Book &b, Reader &r) {
     if (!b.isBorrowed()) return false;
-    if (*b.getLastsBorrowers().end() != r.getSurname() + " " + r.getName()) return false;
+    if (b.getLastBorrower()  != r.getSurname() + " " + r.getName()) return false;
     b.setIsBorrowed(false);
     return true;
 }
